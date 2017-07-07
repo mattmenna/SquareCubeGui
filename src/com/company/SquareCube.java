@@ -18,6 +18,7 @@ public class SquareCube {
 
     public SquareCube() {
         squareTheNumberButton.addActionListener(new BtnClicked(squareTheNumberButton.getText()));
+        cubeTheButtonButton.addActionListener(new cubebtnClicked(cubeTheButtonButton.getText()));
     }
 
     private class BtnClicked implements ActionListener{
@@ -29,9 +30,29 @@ public class SquareCube {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            outputTextField.setText("Hope this works");
+            String input = inputTextField.getText();
+            double integerInput = Double.parseDouble(input);
+            double output = Math.pow(integerInput, 2);
+            outputTextField.setText(Double.toString(output));
         }
     }
+
+    private class cubebtnClicked implements ActionListener{
+        private String value;
+
+        public cubebtnClicked(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String input = inputTextField.getText();
+            double integerInput = Double.parseDouble(input);
+            double output = Math.pow(integerInput, 3);
+            outputTextField.setText(Double.toString(output));
+        }
+    }
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("SquareCube");
