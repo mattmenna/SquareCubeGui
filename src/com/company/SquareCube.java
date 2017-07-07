@@ -16,8 +16,21 @@ public class SquareCube {
     private JTextField outputTextField;
     private JPanel gui;
 
-    public SquareCube(){
+    public SquareCube() {
         squareTheNumberButton.addActionListener(new BtnClicked(squareTheNumberButton.getText()));
+    }
+
+    private class BtnClicked implements ActionListener{
+        private String value;
+
+        public BtnClicked(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            outputTextField.setText("Hope this works");
+        }
     }
 
     public static void main(String[] args) {
@@ -27,16 +40,5 @@ public class SquareCube {
         frame.pack();
         frame.setVisible(true);
     }
-}
-
-private class BtnClicked implements ActionListener {
-
-    private String value;
-
-    public Btnclicked(String value) {
-        this.value = value;
-    }
-
-    public void actionPerformed(){ActionEvent e}
 
 }
